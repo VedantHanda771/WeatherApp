@@ -202,3 +202,277 @@ let lat_pv=document.createElement("p");
 let h5Sky=document.createElement("h5");
 let sky=((data[0].weather[0].main).toUpperCase());
 h5Sky.innerText=`${sky}`;
+
+let div_d1=document.createElement("div");
+div_d1.setAttribute("class","disdetl");
+
+let d1_img=document.createElement("div");
+d1_img.setAttribute("class","img");
+
+let d1_img1=document.createElement("img");
+d1_img1.src=`${logo1}`;
+ let pH=document.createElement("p");
+ pH.innerText=`Humidity`;
+
+ d1_img.append(d1_img1,pH);
+
+ let pHV=document.createElement("p");
+ pHV.innerText=`${data[0].humidity}%`;
+
+ div_d1.append(d1_img,pHV);
+
+
+
+ let div_d2=document.createElement("div");
+div_d2.setAttribute("class","disdetl");
+
+let d2_img=document.createElement("div");
+d2_img.setAttribute("class","img");
+
+let d2_img2=document.createElement("img");
+d2_img2.src=`${logo2}`;
+ let pW=document.createElement("p");
+ pW.innerText=`Wind Speed`;
+
+ d2_img.append(d2_img2,pW);
+
+ let pWV=document.createElement("p");
+ pWV.innerText=`${data[0].wind_speed}`;
+
+ div_d2.append(d2_img,pWV);
+
+
+ let div_d3=document.createElement("div");
+div_d3.setAttribute("class","disdetl");
+
+let d3_img=document.createElement("div");
+d3_img.setAttribute("class","img");
+
+let d3_img3=document.createElement("img");
+d3_img3.src=`${logo3}`;
+ let pMn=document.createElement("p");
+ pMn.innerText=`Min Temp`;
+
+ d3_img.append(d3_img3,pMn);
+
+ let pMnV=document.createElement("p");
+ let tmin=(data[0].temp.min-(273.15)).toFixed(2)
+
+ pMnV.innerText=`${tmin}`
+
+ div_d3.append(d3_img,pMnV);
+
+
+ let div_d4=document.createElement("div");
+div_d4.setAttribute("class","disdetl");
+
+let d4_img=document.createElement("div");
+d4_img.setAttribute("class","img");
+
+let d4_img4=document.createElement("img");
+d4_img4.src=`${logo4}`;
+ let pMm=document.createElement("p");
+ pMm.innerText=`Max Temp`;
+
+ d4_img.append(d4_img4,pMm);
+
+ let pMmV=document.createElement("p");
+ let tmax=(data[0].temp.max-(273.15)).toFixed(2)
+
+ pMmV.innerText=`${tmax}`
+
+ div_d4.append(d4_img,pMmV);
+
+
+
+ let div_d5=document.createElement("div");
+div_d5.setAttribute("class","disdetl");
+
+let d5_img=document.createElement("div");
+d5_img.setAttribute("class","img");
+
+let d5_img5=document.createElement("img");
+d5_img5.src=`${logo5}`;
+ let pSs=document.createElement("p");
+ pSs.innerText=`Sunrise`;
+
+ d5_img.append(d5_img5,pSs);
+
+ let pSsV=document.createElement("p");
+ const time=new Date(data[0].sunrise*1000);
+const [hour, minutes] = [time.getHours(), time.getMinutes()];
+
+
+let h=hour.toString();
+let m=minutes.toString();
+if(m.length<2){
+pSsV.innerText=`${h} : 0${m}`;
+}
+else{
+pSsV.innerText=`${h} : ${m}`;
+
+}
+div_d5.append(d5_img,pSsV);
+
+
+let div_d6=document.createElement("div");
+div_d6.setAttribute("class","disdetl");
+
+let d6_img=document.createElement("div");
+d6_img.setAttribute("class","img");
+
+let d6_img6=document.createElement("img");
+d6_img6.src=`${logo6}`;
+ let pSr=document.createElement("p");
+ pSr.innerText=`Sunset`;
+
+ d6_img.append(d6_img6,pSr);
+
+ let pSrV=document.createElement("p");
+ const timeS=new Date(data[0].sunset*1000);
+const [hourS, minutesS] = [timeS.getHours(), timeS.getMinutes()];
+
+
+let hS=hourS.toString();
+let mS=minutesS.toString();
+if(mS.length<2){
+pSrV.innerText=`${hS} : 0${mS}`;
+}
+else{
+pSrV.innerText=`${hS} : ${mS}`;
+
+}
+div_d6.append(d6_img,pSrV);
+
+document.querySelector(".temp-cont").classList.add("visible");
+
+document.querySelector("#temp").append(h3Temp,div_temp);
+document.querySelector("#detl").append(h5Sky,div_d1,div_d2,div_d3,div_d4,div_d5,div_d6);
+
+
+console.log(data)
+let h5_cloud=document.createElement("h5");
+h5_cloud.innerText=``
+for(let i=1;i<data.length;i++){
+const cr_dy=new Date(data[i].dt*1000);
+const [dayCr] = [cr_dy.getDay()];
+let dayCrr;
+if(dayCr===0){
+    dayCrr="Sunday";
+}
+else if(dayCr===1){
+    dayCrr="Monday";
+}
+else if(dayCr===2){
+    dayCrr="Tuesday";
+}
+else if(dayCr===3){
+    dayCrr="Wednesday";
+}
+else if(dayCr===4){
+    dayCrr="Thursday";
+}
+else if(dayCr===5){
+    dayCrr="Friday";
+}
+else if(dayCr===6){
+    dayCrr="Saturday";
+}
+// console.log(dayCrr)
+let Card_icon=(data[i].weather[0].icon)
+
+let Card_divO=document.createElement("div");
+let C_supT=document.createElement("sup");
+C_supT.innerText="C"
+
+let C_supM=document.createElement("sup");
+C_supM.innerText="C"
+
+let C_supMx=document.createElement("sup");
+C_supMx.innerText="C"
+
+let C_day=document.createElement("h4");
+C_day.innerText=`${dayCrr}`
+
+
+let card_div_class=document.createElement("div");
+card_div_class.setAttribute("class","first");
+let C_temp=(data[i].temp.day-(273.15)).toFixed(2)
+
+
+   let card_h5=document.createElement("h5");
+   card_h5.innerText=`${C_temp}°`;
+   card_h5.append(C_supT)
+
+   let divC_img_cont=document.createElement("div");
+     let divC_img=document.createElement("img");
+divC_img.src=`https://openweathermap.org/img/w/${Card_icon}.png`;
+
+divC_img_cont.append(divC_img);
+
+card_div_class.append(card_h5,divC_img_cont);
+
+let card_temp_div=document.createElement("div");
+card_temp_div.setAttribute("class","dy-temp")
+
+let cMint=document.createElement("p");
+cMint.innerText=`Min Temp`
+let cMintV=document.createElement("p");
+let C_tmin=(data[i].temp.min-(273.15)).toFixed(2)
+cMintV.innerText=`${C_tmin}°`
+cMintV.append(C_supM);
+
+card_temp_div.append(cMint,cMintV);
+
+console.log(data[i].dt)
+let card_temp_div2=document.createElement("div");
+card_temp_div2.setAttribute("class","dy-temp")
+
+let cMaxt=document.createElement("p");
+cMaxt.innerText=`Max Temp`;
+
+let cMaxtV=document.createElement("p");
+let C_tmax=(data[i].temp.max-(273.15)).toFixed(2);
+cMaxtV.innerText=`${C_tmax}°`;
+cMaxtV.append(C_supMx);
+
+
+card_temp_div2.append(cMaxt,cMaxtV);
+Card_divO.append(C_day,card_div_class, card_temp_div, card_temp_div2);
+
+
+document.querySelector(".days").classList.add("visible")
+
+
+document.querySelector(".days").append(Card_divO);
+
+}
+
+
+}
+
+
+
+//    Geo location
+
+async function  liveLocationD(lat,long){
+let rl=`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${key}`
+
+let urlDays=`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${key}`;
+try{
+    let resr=await fetch(rl);
+    let datas=await resr.json();
+    let res=await fetch(urlDays);
+    let data=await res.json();
+   // console.log(datas)
+   //console.log(data)
+    document.querySelector(".default").classList.add("defaultV")
+    document.querySelector(".frame").classList.add("frameV")
+   let frm=  document.querySelector("#gmap_canvas");
+   frm.src=`https://maps.google.com/maps?q=${datas.name}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
+   document.querySelector("#city").value=`${datas.name}`;
+   appendAuto(data.daily,datas.coord.lat,datas.coord.lon);
+}
+catch(err){
+    console.log(err)
+}

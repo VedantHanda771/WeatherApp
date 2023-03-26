@@ -1,0 +1,30 @@
+@media all and (min-width:240px) and (max-width:480px){
+    .gmap_canvas {
+        overflow:hidden;
+        background:none!important; 
+        height: 800px!important;
+        }
+        .frame{
+        width: 100%;
+        height: 100%!important;
+       
+        display: none; 
+     
+        }
+        .frameV{
+        display:block;
+        }
+        #parent{
+        width: 100%;
+   
+        position: relative;
+        
+       
+        }
+        #input{
+        width: 80%;
+        top: 70px;
+        left: 11%;        
+        }
+
+      

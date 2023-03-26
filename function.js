@@ -708,3 +708,170 @@ d5_img5.src=`${logo5}`;
  let pSsV=document.createElement("p");
  const time=new Date(data[0].sunrise*1000);
 const [hour, minutes] = [time.getHours(), time.getMinutes()];
+
+
+let h=hour.toString();
+let m=minutes.toString();
+if(m.length<2){
+pSsV.innerText=`${h} : 0${m}`;
+}
+else{
+pSsV.innerText=`${h} : ${m}`;
+
+}
+div_d5.append(d5_img,pSsV);
+
+
+let div_d6=document.createElement("div");
+div_d6.setAttribute("class","disdetl");
+
+let d6_img=document.createElement("div");
+d6_img.setAttribute("class","img");
+
+let d6_img6=document.createElement("img");
+d6_img6.src=`${logo6}`;
+ let pSr=document.createElement("p");
+ pSr.innerText=`Sunset`;
+
+ d6_img.append(d6_img6,pSr);
+
+ let pSrV=document.createElement("p");
+ const timeS=new Date(data[0].sunset*1000);
+const [hourS, minutesS] = [timeS.getHours(), timeS.getMinutes()];
+
+
+let hS=hourS.toString();
+let mS=minutesS.toString();
+if(mS.length<2){
+pSrV.innerText=`${hS} : 0${mS}`;
+}
+else{
+pSrV.innerText=`${hS} : ${mS}`;
+
+}
+div_d6.append(d6_img,pSrV);
+
+document.querySelector(".temp-cont").classList.add("visible");
+
+document.querySelector("#temp").append(h3Temp,div_temp);
+document.querySelector("#detl").append(h5Sky,div_d1,div_d2,div_d3,div_d4,div_d5,div_d6);
+
+
+console.log(data)
+let h5_cloud=document.createElement("h5");
+h5_cloud.innerText=``
+for(let i=1;i<data.length;i++){
+const cr_dy=new Date(data[i].dt*1000);
+const [dayCr] = [cr_dy.getDay()];
+let dayCrr;
+if(dayCr===0){
+    dayCrr="Sunday";
+}
+else if(dayCr===1){
+    dayCrr="Monday";
+}
+else if(dayCr===2){
+    dayCrr="Tuesday";
+}
+else if(dayCr===3){
+    dayCrr="Wednesday";
+}
+else if(dayCr===4){
+    dayCrr="Thursday";
+}
+else if(dayCr===5){
+    dayCrr="Friday";
+}
+else if(dayCr===6){
+    dayCrr="Saturday";
+}
+// console.log(dayCrr)
+let Card_icon=(data[i].weather[0].icon)
+
+let Card_divO=document.createElement("div");
+let C_supT=document.createElement("sup");
+C_supT.innerText="C"
+
+let C_supM=document.createElement("sup");
+C_supM.innerText="C"
+
+let C_supMx=document.createElement("sup");
+C_supMx.innerText="C"
+
+let C_day=document.createElement("h4");
+C_day.innerText=`${dayCrr}`
+
+
+let card_div_class=document.createElement("div");
+card_div_class.setAttribute("class","first");
+let C_temp=(data[i].temp.day-(273.15)).toFixed(2)
+
+
+   let card_h5=document.createElement("h5");
+   card_h5.innerText=`${C_temp}°`;
+   card_h5.append(C_supT)
+
+   let divC_img_cont=document.createElement("div");
+     let divC_img=document.createElement("img");
+divC_img.src=`https://openweathermap.org/img/w/${Card_icon}.png`;
+
+divC_img_cont.append(divC_img);
+
+card_div_class.append(card_h5,divC_img_cont);
+
+let card_temp_div=document.createElement("div");
+card_temp_div.setAttribute("class","dy-temp")
+
+let cMint=document.createElement("p");
+cMint.innerText=`Min Temp`
+let cMintV=document.createElement("p");
+let C_tmin=(data[i].temp.min-(273.15)).toFixed(2)
+cMintV.innerText=`${C_tmin}°`
+cMintV.append(C_supM);
+
+card_temp_div.append(cMint,cMintV);
+
+console.log(data[i].dt)
+let card_temp_div2=document.createElement("div");
+card_temp_div2.setAttribute("class","dy-temp")
+
+let cMaxt=document.createElement("p");
+cMaxt.innerText=`Max Temp`;
+
+let cMaxtV=document.createElement("p");
+let C_tmax=(data[i].temp.max-(273.15)).toFixed(2);
+cMaxtV.innerText=`${C_tmax}°`;
+cMaxtV.append(C_supMx);
+
+
+card_temp_div2.append(cMaxt,cMaxtV);
+Card_divO.append(C_day,card_div_class, card_temp_div, card_temp_div2);
+
+
+document.querySelector(".days").classList.add("visible")
+document.querySelector(".days").append(Card_divO);
+
+}
+
+
+}
+
+// const time=new Date(1653888600*1000);
+// console.log(time)  <h3>32.23*C</h3>
+      //  <div><img src="" alt=""></div>
+
+
+
+function getLocationWeather() {
+navigator.geolocation.getCurrentPosition(success);
+function success(position) {
+const latitude = position.coords.latitude;
+const longitude = position.coords.longitude;
+liveLocationD(latitude,longitude)
+
+// console.log(latitude);
+// console.log(longitude);
+}
+}
+
+getLocationWeather()

@@ -215,3 +215,35 @@ align-items: center;
 width: 40%;
 
 }
+.first>div>img{
+
+width: 100%;
+}
+.dy-temp{
+display: flex;
+justify-content: space-between;
+
+}
+.first>h5{
+color: #fff;
+font-size: 17px;
+}
+.default{
+width: 100%;
+height: 100%;
+
+}
+.defaultV{
+display: none;
+}
+hr{
+margin-top: 10px;
+}
+.days>div>h4{
+text-align: center;
+color: #fff;
+}
+.visible{
+opacity: 1;
+
+}

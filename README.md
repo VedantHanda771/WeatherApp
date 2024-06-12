@@ -1,6 +1,6 @@
-#WEATHER APP🌞⛅🌤️🌥️🌦️
+# WEATHER APP🌞⛅🌤️🌥️🌦️
 
-####DEMO-->https://weather-app-sandy-alpha-49.vercel.app/
+#### DEMO-->https://weather-app-sandy-alpha-49.vercel.app/
 
 ![image](https://github.com/VedantHanda771/WeatherApp/assets/122337658/9c825963-e0f3-49d4-9d36-f74e85ac279b)
 

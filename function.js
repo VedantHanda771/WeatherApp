@@ -14,7 +14,7 @@ btnsrch.addEventListener("click",function(){
 })
 
 async function getData(city){
-    let url = `http://localhost:3000/api/weather/${city}`;
+    let url = `https://weatherapp-c8yo.onrender.com/api/weather/${city}`;
 
     try {
         let res = await fetch(url);
@@ -29,7 +29,7 @@ async function getLocationBysrch(data) {
     let lat = data.coord.lat;
     let long = data.coord.lon;
 
-    let urlDays = `http://localhost:3000/api/forecast/${lat}/${long}`;
+    let urlDays = `https://weatherapp-c8yo.onrender.com/api/forecast/${lat}/${long}`;
     try {
         let resday = await fetch(urlDays);
         let dataDays = await resday.json();
@@ -225,12 +225,12 @@ function getLocationWeather() {
 async function liveLocationD(lat, long) {
     try {
         // Get current weather data
-        let weatherUrl = `http://localhost:3000/api/weather/${lat},${long}`;
+        let weatherUrl = `https://weatherapp-c8yo.onrender.com/api/weather/${lat},${long}`;
         let weatherRes = await fetch(weatherUrl);
         let weatherData = await weatherRes.json();
 
         // Get forecast data
-        let forecastUrl = `http://localhost:3000/api/forecast/${lat}/${long}`;
+        let forecastUrl = `https://weatherapp-c8yo.onrender.com/api/forecast/${lat}/${long}`;
         let forecastRes = await fetch(forecastUrl);
         let forecastData = await forecastRes.json();
 

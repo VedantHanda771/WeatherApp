@@ -1,0 +1,50 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "server.js",
+        "use": "@vercel/node"  
+      },
+      {
+        "src": "index.html",
+        "use": "@vercel/static"  
+      },
+      {
+        "src": "common.css",
+        "use": "@vercel/static"  
+      },
+      {
+        "src": "mobile.css",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "function.js",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "drop-silhouette.png",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "rising-sun.png",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "sunset.png",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "temperature (1).png",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "temperature.png",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "wind.png",
+        "use": "@vercel/static"
+      }
+    ]
+  }
+  
